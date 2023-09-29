@@ -1,0 +1,33 @@
+{{define "login"}}
+<html>
+  <head>
+    <link href="/static/login.css" rel="stylesheet" />
+  </head>
+  <div id="content">
+    <form hx-post="/api/nameset" hx-swap="outerHTML" hx-target="#content">
+      <div class="fill-container">
+        <h1>Name yourself</h1>
+        <input name="name" />
+        <button type="button" onclick="showConfirmation()">Submit</button>
+        <p>pick something cool</p>
+      </div>
+      <div class="respect-container" style="display: none">
+        <p>hi <span id="name-placeholder"></span>, please be respectful.</p>
+        <button id="submit-button" type="submit" disabled>let me in!!!</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const showConfirmation = () => {
+      document.querySelector("#submit-button").removeAttribute("disabled");
+      document.querySelector(".respect-container").style.display = "block";
+      document.querySelector(".fill-container").style.display = "none";
+      let name = document.querySelector("input").value;
+      document.querySelector("#name-placeholder").innerText = name
+        ? name
+        : "anon";
+    };
+  </script>
+</html>
+{{end}}

@@ -1,0 +1,53 @@
+{{define "orbit"}}
+<html>
+  <head>
+    <title>{{.name}} on the beat</title>
+    <link href="/static/index.css" rel="stylesheet" />
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div id="window">
+        <div id="navbar">{{.name}}'s control panel</div>
+        <div id="horizontal-container">
+          <div id="users">
+            <div id="users-header">users:</div>
+            <div id="users-list"></div>
+          </div>
+          <div id="chat" hx-ws="connect:/ws" hx-vals='{"event": "orbit"}'>
+            <div id="messages">hi</div>
+            <form id="input" hx-ws="send">
+              <input id="message" type="text" name="message" />
+              <input id="name" type="hidden" name="name" value="{{.name}}" />
+              <button type="submit" id="send">send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const titleLoop = () => {
+      let str = {{.name}};
+      let tempStr = str
+      let len = str.length;
+      let i = 0;
+
+
+      if (typeof document !== "undefined") {
+        setInterval(() => {
+
+          i += 1;
+          if (i > len) {
+            i = 0;
+          }
+
+          tempStr = str.slice(0, i);
+          document.title = tempStr ? tempStr : {{.name}} + " on the beat";
+        }, 500);
+      }
+    }
+    titleLoop();
+  </script>
+</html>
+{{end}}

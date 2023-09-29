@@ -1,0 +1,39 @@
+.content {
+  width: 60%;
+  height: 75%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#window {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#navbar {
+  height: 5rem;
+}
+
+#horizontal-container {
+  display: flex;
+  height: 100%;
+}
+
+#chat {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#users {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    height: 80%;
+    width: 80%;
+  }
+}
