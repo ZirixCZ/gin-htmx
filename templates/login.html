@@ -3,17 +3,48 @@
   <head>
     <link href="/static/login.css" rel="stylesheet" />
   </head>
+  <div id="desc">
+    Greetings! I warmly welcome you to this website, which brilliantly showcases
+    the power of HTMX and its integration with a modern web framework like Gin
+    Gonic. As a side note, you can also utilize this platform as a one-room chat
+    application with no logs. I must say it's
+    <u>remarkably blazingly</u> fast! To end with a touch of Star Trek wisdom:
+    "Live long and prosper." 🖖
+  </div>
   <div id="content">
     <form hx-post="/api/nameset" hx-swap="outerHTML" hx-target="#content">
       <div class="fill-container">
-        <h1>Name yourself</h1>
+        <h1>Pick a name</h1>
         <input name="name" />
         <button type="button" onclick="showConfirmation()">Submit</button>
-        <p>pick something cool</p>
+        <p>feeling creative?</p>
       </div>
       <div class="respect-container" style="display: none">
-        <p>hi <span id="name-placeholder"></span>, please be respectful.</p>
-        <button id="submit-button" type="submit" disabled>let me in!!!</button>
+        <div class="respect-wrapper">
+          <p>
+            <span id="name-placeholder"></span>, please be respectful in the
+            chat. <br /> </br/>
+            There are a few features awaiting you inside. Firstly, you'll be
+            able to see the number of users currently connected. It is very
+            likely that the number will be 1. Don't let that discourage you from
+            enjoying the <u>blazingly</u> fast HTMX with Gin Gonic. Secondly, you'll be
+            able to
+            <a
+              id="purple-respect"
+              href="https://www.crowe-associates.co.uk/courageous-conversations/2403-2/"
+              target="_blank"
+              >share your thoughts</a
+            >
+            with all of them. As a bonus, you can also attach image links to
+            your messages. <br />
+            Have fun, and as Captain Jean-Luc Picard would say, "Engage!"
+            <img src="/static/sparkler.gif" id="sparkler" />
+          </p>
+
+          <button id="submit-button" type="submit" disabled>
+            let me in!!!
+          </button>
+        </div>
       </div>
     </form>
   </div>
@@ -21,8 +52,9 @@
   <script>
     const showConfirmation = () => {
       document.querySelector("#submit-button").removeAttribute("disabled");
-      document.querySelector(".respect-container").style.display = "block";
+      document.querySelector(".respect-container").style.display = "flex";
       document.querySelector(".fill-container").style.display = "none";
+      document.querySelector("#desc").style.display = "none";
       let name = document.querySelector("input").value;
       document.querySelector("#name-placeholder").innerText = name
         ? name

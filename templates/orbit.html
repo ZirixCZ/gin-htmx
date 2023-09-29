@@ -8,19 +8,34 @@
   <body>
     <div class="content">
       <div id="window">
-        <div id="navbar">{{.name}}'s control panel</div>
-        <div id="horizontal-container">
+        <div id="navbar">
+          {{.name}}'s control panel
           <div id="users">
             <div id="users-header">users:</div>
-            <div id="users-list"></div>
+            <div id="users-list">0</div>
           </div>
+        </div>
+        <div id="horizontal-container">
           <div id="chat" hx-ws="connect:/ws" hx-vals='{"event": "orbit"}'>
-            <div id="messages">hi</div>
-            <form id="input" hx-ws="send">
-              <input id="message" type="text" name="message" />
-              <input id="name" type="hidden" name="name" value="{{.name}}" />
-              <button type="submit" id="send">send</button>
-            </form>
+            <div id="chat-container">
+              <div id="messages"></div>
+              <form id="input" hx-ws="send">
+                <input
+                  id="message"
+                  type="text"
+                  name="message"
+                  placeholder="your message"
+                />
+                <input
+                  id="image"
+                  type="text"
+                  name="message"
+                  placeholder="image url"
+                />
+                <input id="name" type="hidden" name="name" value="{{.name}}" />
+                <button type="submit" id="send">send</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

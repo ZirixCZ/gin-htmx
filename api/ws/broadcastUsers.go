@@ -9,7 +9,7 @@ import (
 func BroadcastUsers(connections []*websocket.Conn) {
 	html := fmt.Sprintf(`
 		<div  id="users-list" hx-swap-oob="morphdom">
-				<div class="message__name">%d</div>
+				<div class="message__name"> %d</div>
 				
 		</div>
 		`, len(connections))

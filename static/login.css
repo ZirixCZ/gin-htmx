@@ -4,6 +4,53 @@ input {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
+}
+
+#desc {
+  margin-bottom: 50rem;
+  position: absolute;
+  color: #00ffff;
+  font-size: 1.2rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.respect-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.respect-wrapper {
+  padding-left: 10rem;
+  padding-right: 10rem;
+  line-height: 1.5rem;
+}
+
+#purple-respect {
+  color: #ff66ff;
+  text-decoration: underline;
+}
+
+#sparkler {
+  display: inline;
+}
+
+@media (min-width: 1280px) {
+  .respect-wrapper {
+    width: 35%;
+  }
+}
+
+@media (max-width: 768px) {
+  #desc {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .respect-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

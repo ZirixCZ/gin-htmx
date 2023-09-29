@@ -13,22 +13,38 @@
 
 #navbar {
   height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #horizontal-container {
   display: flex;
-  height: 100%;
+  height: 50rem;
+  border-top: 2px solid transparent;
+
+  border-image: url("colorzap.gif") 30 round;
 }
 
 #chat {
-  flex: 2;
   display: flex;
-  justify-content: center;
-  align-items: end;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 #users {
-  flex: 1;
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 768px) {
